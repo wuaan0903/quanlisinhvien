@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./assets/style.css"/>
+    <title>Trang bán hàng trực tuyến của Biti's Việt Nam</title>
+    <link rel="shortcut icon" type="image/jpg" href="https://cdn.haitrieu.com/wp-content/uploads/2022/02/Icon-Bitis.png">
+    
+</head>
+<body>
+    <div class="main">
+        <div class="form">
+            <h1>NHẬP ĐIỂM CỦA SINH VIÊN</h1>
+            <div class="item">
+                <h2>Mã Sinh Viên</h2>
+                <input type="text" placeholder="2155010211" id="masv">
+            </div>
+            <div class="item">
+                <h2>Tên Sinh Viên </h2>
+                <input type="text" placeholder="Nguyễn Văn A" id="name">
+            </div>
+            <div class="item">
+                <div class="diem">
+                    <h3>Điểm QT</h3>
+                <input type="text"placeholder="10" id="diemqt">
+                </div>
+                <div class="diem">
+                    <h3>Điểm Thi</h3>
+                    <input type="text" placeholder="10" id="diemthi">
+                </div>
+                
+            </div>
+                <button onclick="add()" class="btn btn-primary">Thêm</button>
+        </div>
+        <div class="bang">
+            <table class="table table-striped" id="render">
+                <thead>
+                    <tr class="table-active">
+                        <th>STT</th>
+                        <th>Mã SV</th>
+                        <th>Tên Sinh Viên</th>
+                        <th>Điểm QT</th>
+                        <th>Điểm Thi</th>
+                        <th>Điểm TB</th>
+                        <th>Điểm Chữ</th>
+                        <th>Kết Quả</th>
+                        <th>Chỉnh Sửa</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
