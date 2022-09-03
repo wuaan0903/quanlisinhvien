@@ -128,10 +128,18 @@ body{
 .edit{
     background: #ccf6e4;
     color: #00864e;
+    transition: 0.3s;
 }
 .delete{
     background: #E63756;
     color: #fff;
+    transition: 0.3s;
+}
+.edit:hover{
+    background: #b5dbcb;
+}
+.delete:hover{
+    background: #ca314d;
 }
 th,td{
     text-align: center;
@@ -152,4 +160,20 @@ th,td{
     border: none;
     border-radius: 3px;
     font-weight: 600;
+}
+@media only screen and (max-width: 600px){
+    .main{
+        display: block;
+    }
+}
+@media only screen and (max-width: 600px){
+    .form{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .bang{
+        overflow:visible;
+        width: 100%;
+    }
 }
