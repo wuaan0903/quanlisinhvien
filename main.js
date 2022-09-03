@@ -12,6 +12,28 @@ function checkkq(diemtb){
     if(diemtb<4) return "FAIL";
     else return "PASS"
 }
+let index=-1;
+
+function clear(){
+    document.getElementById("masv").value=""
+    document.getElementById("name").value=""
+    document.getElementById("diemqt").value=""
+    document.getElementById("diemthi").value=""
+}
+
+function edit(masv){
+    for(let i=0;i<data.length;i++)
+    {
+        if(i==masv)
+        {
+            document.getElementById("masv").value=data[i].MaSV
+            document.getElementById("name").value=data[i].Name
+            document.getElementById("diemqt").value=data[i].DiemQT
+            document.getElementById("diemthi").value=data[i].DiemThi
+        }
+    }
+    index=masv;
+}
 
 function add(){
     var masv = document.getElementById("masv").value
@@ -31,15 +53,22 @@ function add(){
         DiemChu : diemchu,
         Ketqua : ketqua
     }
-    data.push(item)
     if(masv=="" || name=="" || diemqt=="" || diemthi=="") {
         swal ( "Thất Bại" ,  "Bạn chưa điền đầy đủ các ô trống" ,  "error" )
-        data.length--;
     }
     else {
-        swal("Thành Công !", "Bạn đã thêm thành công 1 sinh viên", "success");
-        render()
-    };
+        if(index==-1)
+        {
+            data.push(item)
+            swal("Thành Công !", "Bạn đã thêm thành công 1 sinh viên", "success");
+        }
+        else {
+            data.splice(index,1,item)
+            index=-1;
+            swal("Thành Công !", "Bạn đã sửa thành công thông tin 1 sinh viên", "success");
+        }
+        }
+    render()
     clear()
 }
 function render(){
@@ -68,7 +97,7 @@ function render(){
         <td>${data[i].DiemChu}</td>
         <td> <button class="ketqua" >${data[i].Ketqua}</button> </td>
         <th> 
-        <button onclick="edit()" class="edit" >Sửa</button>
+        <button onclick="edit(${i})" class="edit" >Sửa</button>
         <button onclick="deleteSV(${i})" class="delete" >Xóa</button>
         </th>
     </tr>`
@@ -84,7 +113,7 @@ function render(){
         <td>${data[i].DiemChu}</td>
         <td> <button class="ketquafail" >${data[i].Ketqua}</button> </td>
         <th> 
-        <button onclick="edit()" class="edit" >Sửa</button>
+        <button onclick="edit(${i})" class="edit" >Sửa</button>
         <button onclick="deleteSV(${i})" class="delete" >Xóa</button>
         </th>
     </tr>`  
@@ -119,11 +148,4 @@ function deleteSV(masv){
           swal("OK! Hãy cẩn thận khi bấm nút XÓA");
         }
       });
-}
-
-function clear(){
-    document.getElementById("masv").value=""
-    document.getElementById("name").value=""
-    document.getElementById("diemqt").value=""
-    document.getElementById("diemthi").value=""
 }
